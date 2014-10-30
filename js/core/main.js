@@ -1,18 +1,19 @@
 // Sets the require.js configuration for your application.
 require.config( {
 
-	baseUrl: "../lib",
+	baseUrl: "../www/js",
 
 	// 3rd party script alias names
 	paths: {
 
 		// Core Libraries
-		"jquery": "jquery-1.11.1.min",
-		"jquerymobile": "jquery.mobile-1.4.4",
-		"underscore": "lodash.min",
-		"backbone": "backbone-1.1.2-min",
+		"jquery": "lib/jquery-1.11.1.min",
+		"jquerymobile": "lib/jquery.mobile-1.4.4.min",
+		"jqueryparse": "lib/jquery.parse.min",
+		"underscore": "lib/lodash.min",
+		"backbone": "lib/backbone-1.1.2-min",
 
-		"core": "../core"
+		"core": "../js/core"
 	},
 
 	// Sets the configuration for your third party scripts that are not AMD compatible
@@ -31,13 +32,16 @@ require.config( {
 require([
 	"jquery",
 	"backbone",
-	"core/routers/mobileRouter"
-], function ( $, Backbone, Mobile ) {
+	"core/routers/mobileRouter",
+	"core/icatalogue"
+], function ( $, Backbone, Mobile, iCatalogue ) {
 
 	$( document ).on( "mobileinit",
 
 		// Set up the "mobileinit" handler before requiring jQuery Mobile's module
 		function () {
+
+			iCatalogue.init();
 
 			// Prevents all anchor click handling including the addition of active button state and alternate link bluring.
 			$.mobile.linkBindingEnabled = false;

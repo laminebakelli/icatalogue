@@ -44,6 +44,8 @@ define([
         // Home method
         home: function() {
 
+           // alert("home")
+
             // Programatically changes to the categories page
             $.mobile.changePage( "#categories" , { reverse: false, changeHash: false } );
 
@@ -51,6 +53,20 @@ define([
 
         // Category method that passes in the type that is appended to the url hash
         category: function(type) {
+/*
+
+
+                         // Set the variable $width to the width of our wrapper on page load
+     $width = $('#companylogo').width();
+     // Target all images inside the #content. This works best if you want to ignore certain images that are part of the layout design
+     $('#companylogo img').css({
+          // Using jQuery CSS we write the $width variable we previously specified as a pixel value. We use max-width incase the image is smaller than our viewport it won't scale it larger. Don't forget to set height to auto or else it will squish your photos.
+          'max-width' : $width , 'height' : 'auto'
+          });
+*/
+
+           // alert('Type: ' + type)
+
 
             // Stores the current Category View  inside of the currentView variable
             var currentView = this[ type + "View" ];
